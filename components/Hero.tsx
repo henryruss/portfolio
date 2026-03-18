@@ -4,8 +4,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { heroWordStagger, heroWord, fadeUp } from "@/lib/animations";
 
-const titleLine1 = "I want the machine";
-const titleLine2 = "to not need me.";
+const titleLine1 = "Always Building.";
+const titleLine2 = "Always Learning.";
 
 const stats = [
   { label: "Graduating", value: "May 2026" },
@@ -53,6 +53,7 @@ export default function Hero() {
               key={`l2-${i}`}
               variants={heroWord}
               className="mr-[0.3em] inline-block"
+              
             >
               {word}
             </motion.span>
