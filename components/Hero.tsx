@@ -1,11 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { heroWordStagger, heroWord, fadeUp } from "@/lib/animations";
 
-const titleLine1 = "Always Building.";
-const titleLine2 = "Always Learning.";
+const cyclingWords = ["building", "learning"];
 
 const stats = [
   { label: "Graduating", value: "May 2026" },
@@ -16,6 +15,15 @@ const stats = [
 
 export default function Hero() {
   const [titleDone, setTitleDone] = useState(false);
+  const [wordIndex, setWordIndex] = useState(0);
+
+  useEffect(() => {
+    if (!titleDone) return;
+    const interval = setInterval(() => {
+      setWordIndex((i) => (i + 1) % cyclingWords.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [titleDone]);
 
   return (
     <section className="flex min-h-[calc(100vh-65px)] flex-col justify-center px-6">
@@ -38,26 +46,32 @@ export default function Hero() {
           onAnimationComplete={() => setTitleDone(true)}
           className="mb-8 text-[40px] font-semibold leading-[1.15] tracking-[-0.02em] text-primary sm:text-[56px]"
         >
-          {titleLine1.split(" ").map((word, i) => (
-            <motion.span
-              key={i}
-              variants={heroWord}
-              className="mr-[0.3em] inline-block"
-            >
-              {word}
-            </motion.span>
-          ))}
-          <br />
-          {titleLine2.split(" ").map((word, i) => (
-            <motion.span
-              key={`l2-${i}`}
-              variants={heroWord}
-              className="mr-[0.3em] inline-block"
-              
-            >
-              {word}
-            </motion.span>
-          ))}
+          <motion.span variants={heroWord} className="mr-[0.3em] inline-block">
+            Always
+          </motion.span>
+          <motion.span
+            variants={heroWord}
+            className="relative mr-[0.3em] inline-block overflow-hidden"
+            style={{ verticalAlign: "bottom" }}
+          >
+            {/* Invisible spacer locks width to longest word */}
+            <span className="invisible">building</span>
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.span
+                key={cyclingWords[wordIndex]}
+                initial={{ y: "-100%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                exit={{ y: "100%", opacity: 0 }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
+                className="absolute inset-0 text-accent"
+              >
+                {cyclingWords[wordIndex]}
+              </motion.span>
+            </AnimatePresence>
+          </motion.span>
+          <motion.span variants={heroWord} className="inline-block">
+            something new.
+          </motion.span>
         </motion.h1>
 
         {/* Subtitle */}

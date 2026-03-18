@@ -14,7 +14,7 @@ const config: Config = {
         secondary: "#888880",
         muted: "#aaa9a0",
         border: "#e0ddd4",
-        accent: "#3a7d44",
+        accent: "#1f5c2e",
         "tag-bg": "#eef4ef",
       },
       fontFamily: {
