@@ -19,7 +19,7 @@ export default function Hero() {
 
   return (
     <section className="flex min-h-[calc(100vh-65px)] flex-col justify-center px-6">
-      <div className="mx-auto w-full max-w-[1120px] py-20">
+      <div className="mx-auto w-full max-w-[1120px] pt-20 pb-10">
         {/* Eyebrow */}
         <motion.p
           initial={{ opacity: 0 }}

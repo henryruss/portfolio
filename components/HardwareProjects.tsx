@@ -37,7 +37,7 @@ export default function HardwareProjects() {
                   src="/images/truck-images/truck-door-open.jpg"
                   alt="Truck door panel removed showing mounted motor, window arm, and breadboard"
                   fill
-                  className="object-cover"
+                  className="object-cover object-[center_30%]"
                 />
               </div>
               {/* Text */}

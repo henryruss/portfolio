@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeUp, skillStagger } from "@/lib/animations";
 
@@ -45,6 +46,19 @@ export default function About() {
             <h2 className="mb-8 font-mono text-[12px] font-medium uppercase tracking-[0.08em] text-primary">
               About
             </h2>
+            <div className="mb-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              <div className="shrink-0">
+                <div className="relative h-[120px] w-[120px] overflow-hidden rounded-full">
+                  <Image
+                    src="/images/headshot.jpg"
+                    alt="Henry Russell"
+                    fill
+                    className="object-cover object-[center_top]"
+                  />
+                </div>
+                <p className="mt-2 font-mono text-[11px] text-muted">Davidson College, NC</p>
+              </div>
+            </div>
             <div className="space-y-5 text-[15px] leading-[1.75] text-secondary">
               <p>
   Hi! I&apos;m Henry Russell, a Physics major at Davidson College with a 
@@ -124,7 +138,8 @@ export default function About() {
                     {group.skills.map((skill) => (
                       <li
                         key={skill}
-                        className="text-[13px] text-secondary"
+                        className="text-[13px]"
+                        style={{ color: "#555550" }}
                       >
                         {skill}
                       </li>
