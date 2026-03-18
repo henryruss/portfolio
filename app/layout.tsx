@@ -17,7 +17,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Henry Russell — Engineer",
+  title: "Henry Russell | Portfolio",
   description:
     "Physics + CS at Davidson College. Building toward systems that act on their own.",
 };
