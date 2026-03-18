@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { fadeUp, skillStagger } from "@/lib/animations";
+import { fadeUp } from "@/lib/animations";
 
 const skillGroups = [
   {
@@ -124,7 +124,7 @@ export default function About() {
 
           {/* Column 3 — skills (40%) */}
           <motion.div
-            variants={skillStagger}
+            variants={fadeUp}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, margin: "-80px" }}
@@ -132,7 +132,7 @@ export default function About() {
           >
             <div className="grid grid-cols-2 gap-8">
               {skillGroups.map((group) => (
-                <motion.div key={group.label} variants={fadeUp}>
+                <div key={group.label}>
                   <h3 className="mb-2 font-mono text-[12px] font-medium text-accent">
                     {group.label}
                   </h3>
@@ -143,7 +143,7 @@ export default function About() {
                       </li>
                     ))}
                   </ul>
-                </motion.div>
+                </div>
               ))}
             </div>
           </motion.div>
