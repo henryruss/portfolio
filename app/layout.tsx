@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "Henry Russell | Portfolio",
   description:
     "Physics + CS at Davidson College. Building toward systems that act on their own.",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
